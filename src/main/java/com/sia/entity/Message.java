@@ -1,0 +1,41 @@
+package com.sia.entity;
+
+import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+import java.time.LocalDateTime;
+
+@Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
+@Entity
+@Table(name = "messages")
+public class Message {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
+
+    @Column(name = "sender_id", nullable = false)
+    private Integer sender;
+
+    @Column(name = "receiver_id", nullable = false)
+    private Integer receiver;
+
+    @Column(name = "ad_id", nullable = false)
+    private Integer ad;
+
+    @Column(nullable = false)
+    private String text;
+
+    @Column(name = "created_at")
+    private LocalDateTime createdAt;
+
+    @PrePersist
+    public void prePersist() {
+        this.createdAt = LocalDateTime.now();
+    }}
