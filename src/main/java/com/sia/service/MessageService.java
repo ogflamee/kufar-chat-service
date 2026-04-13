@@ -8,7 +8,7 @@ public interface MessageService {
 
     MessageDTO sendMessage(MessageDTO dto);
 
-    List<MessageDTO> getChat(Integer user1, Integer user2);
+    List<MessageDTO> getChat(Integer firstUserId, Integer secondUserId);
 
     List<MessageDTO> getMessagesByAd(Integer adId);
 

@@ -11,15 +11,15 @@ import java.util.List;
 @Repository
 public interface MessageRepository extends JpaRepository<Message, Integer> {
 
-    List<Message> findByAd(Integer adId);
+    List<Message> findByAd(Integer ad);
 
     List<Message> findBySenderOrReceiver(Integer sender, Integer receiver);
 
     @Query("""
             SELECT m FROM Message m
-            WHERE(m.sender =: user1 AND m.receiver =: user2)
-            OR (m.sender =: user2 AND m.receiver =: user1)
+            WHERE(m.sender =: firstUserId AND m.receiver =: secondUserId)
+            OR (m.sender =: secondUserId AND m.receiver =: firstUserId)
             ORDER BY m.createdAt
             """)
-    List<Message> findChat(@Param("user1") Integer user1,@Param("user2") Integer user2);
+    List<Message> findChat(@Param("firstUserId") Integer firstUserId,@Param("secondUserId") Integer secondUserId);
 }

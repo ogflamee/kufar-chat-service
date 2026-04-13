@@ -1,6 +1,9 @@
 package com.sia.controller;
 
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.Positive;
 import lombok.RequiredArgsConstructor;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import com.sia.dto.MessageDTO;
 import com.sia.service.MessageService;
@@ -10,27 +13,29 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/messages")
 @RequiredArgsConstructor
+@Validated
 public class MessageController {
 
     private final MessageService messageService;
 
     @PostMapping
-    public MessageDTO send(@RequestBody MessageDTO dto) {
+    public MessageDTO send(@Valid @RequestBody MessageDTO dto) {
         return messageService.sendMessage(dto);
     }
 
     @GetMapping("/chat")
-    public List<MessageDTO> getChat(@RequestParam Integer user1,@RequestParam Integer user2) {
-        return messageService.getChat(user1, user2);
+    public List<MessageDTO> getChat(@RequestParam @Positive Integer firstUserId,
+                                    @RequestParam @Positive Integer secondUserId) {
+        return messageService.getChat(firstUserId, secondUserId);
     }
 
     @GetMapping("/ad/{adId}")
-    public List<MessageDTO> getByAd(@PathVariable Integer adId) {
+    public List<MessageDTO> getByAd(@PathVariable @Positive Integer adId) {
         return messageService.getMessagesByAd(adId);
     }
 
     @GetMapping("/user/{userId}")
-    public List<MessageDTO> getUserMessages(@PathVariable Integer userId) {
+    public List<MessageDTO> getUserMessages(@PathVariable @Positive Integer userId) {
         return messageService.getUserMessages(userId);
     }
 }
