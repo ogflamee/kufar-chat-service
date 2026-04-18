@@ -5,11 +5,6 @@ spring:
   application:
     name: kufar-chat-service
 
-  datasource:
-    url: jdbc:postgresql://localhost:5432/kufar_chat_db
-    username: postgres
-    password: 7bonMy-cyteq
-
   jpa:
     hibernate:
       ddl-auto: validate
