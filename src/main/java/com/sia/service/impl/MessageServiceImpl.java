@@ -48,6 +48,15 @@ public class MessageServiceImpl implements MessageService {
     }
 
     @Override
+    public List<MessageDTO> getChatByAdAndUsers(Integer adId, Integer firstUserId, Integer secondUserId) {
+        log.info("fetching chat for ad {} between {} and {}:", adId, firstUserId, secondUserId);
+        return messageRepository.findChatByAdAndUsers(adId, firstUserId, secondUserId)
+                .stream()
+                .map(messageMapper::toDTO)
+                .toList();
+    }
+
+    @Override
     public List<MessageDTO> getMessagesByAd(Integer adId) {
         log.info("fetching messages for ad: {}", adId);
 

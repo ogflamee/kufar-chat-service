@@ -21,5 +21,19 @@ public interface MessageRepository extends JpaRepository<Message, Integer> {
             OR (m.sender = :secondUserId AND m.receiver = :firstUserId)
             ORDER BY m.createdAt
             """)
-    List<Message> findChat(@Param("firstUserId") Integer firstUserId,@Param("secondUserId") Integer secondUserId);
+    List<Message> findChat(@Param("firstUserId") Integer firstUserId,
+                           @Param("secondUserId") Integer secondUserId);
+
+    @Query("""
+            SELECT m FROM Message m
+            WHERE m.ad = :adId
+            AND (
+            (m.sender = :firstUserId AND m.receiver = :secondUserId)
+            OR (m.sender = :secondUserId AND m.receiver = :firstUserId)
+            )
+            ORDER BY m.createdAt
+            """)
+    List<Message> findChatByAdAndUsers(@Param("adId") Integer adId,
+                           @Param("firstUserId") Integer firstUserId,
+                           @Param("secondUserId") Integer secondUserId);
 }

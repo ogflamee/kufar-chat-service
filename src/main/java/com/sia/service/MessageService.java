@@ -10,7 +10,14 @@ public interface MessageService {
 
     List<MessageDTO> getChat(Integer firstUserId, Integer secondUserId);
 
+    List<MessageDTO> getChatByAdAndUsers(Integer adId,
+                                         Integer firstUserId,
+                                         Integer secondUserId);
+
     List<MessageDTO> getMessagesByAd(Integer adId);
 
     List<MessageDTO> getUserMessages(Integer userId);
+
+
+
 }

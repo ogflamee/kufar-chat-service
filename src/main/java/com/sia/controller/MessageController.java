@@ -29,6 +29,13 @@ public class MessageController {
         return messageService.getChat(firstUserId, secondUserId);
     }
 
+    @GetMapping("/chat/by-ad")
+    public List<MessageDTO> getChatByAdAndUsers(@RequestParam @Positive Integer adId,
+                                                @RequestParam @Positive Integer firstUserId,
+                                                @RequestParam @Positive Integer secondUserId){
+        return messageService.getChatByAdAndUsers(adId, firstUserId, secondUserId);
+    }
+
     @GetMapping("/ad/{adId}")
     public List<MessageDTO> getByAd(@PathVariable @Positive Integer adId) {
         return messageService.getMessagesByAd(adId);
