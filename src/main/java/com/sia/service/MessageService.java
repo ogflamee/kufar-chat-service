@@ -4,6 +4,11 @@ import com.sia.dto.MessageDTO;
 
 import java.util.List;
 
+/**
+ * Сервис для работы с сообщениями.
+ * содержит бизнес-логику отправления, получения чата
+ * между пользователям и получения пользователя через сообщение.
+ */
 public interface MessageService {
 
     MessageDTO sendMessage(MessageDTO dto);

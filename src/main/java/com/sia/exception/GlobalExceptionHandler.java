@@ -11,6 +11,11 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 import java.time.LocalDateTime;
 import java.util.LinkedHashMap;
 import java.util.Map;
+
+/**
+ * Глобальный обработчик исключений.
+ * Перехватывает ошибки приложений и возвращает корректные HTTP-ответы.
+ */
 @Slf4j
 @RestControllerAdvice
 public class GlobalExceptionHandler {

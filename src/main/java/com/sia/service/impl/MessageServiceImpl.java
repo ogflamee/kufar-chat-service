@@ -13,6 +13,11 @@ import org.springframework.transaction.annotation.Transactional;
 import java.time.LocalDateTime;
 import java.util.List;
 
+/**
+ * Реализация сервиса сообщений.
+ * содержит бизнес-логику работы с сообщениями,
+ * включая валидацию и взаимодйствие с БД.
+ */
 @Slf4j
 @Service
 @RequiredArgsConstructor

@@ -5,6 +5,9 @@ import org.mapstruct.Mapping;
 import com.sia.dto.MessageDTO;
 import com.sia.entity.Message;
 
+/**
+ * Маппер для преобразования между сущностью сообщения и DTO.
+ */
 @Mapper(componentModel = "spring")
 public interface MessageMapper {
 

@@ -10,6 +10,11 @@ import com.sia.service.MessageService;
 
 import java.util.List;
 
+/**
+ * REST-контроллер для работы с сообщениями.
+ * предоставляет endpoints для отправки и получения сообщений
+ * между пользователями.
+ */
 @RestController
 @RequestMapping("/api/messages")
 @RequiredArgsConstructor

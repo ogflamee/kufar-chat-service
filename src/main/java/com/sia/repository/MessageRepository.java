@@ -8,6 +8,10 @@ import com.sia.entity.Message;
 
 import java.util.List;
 
+/**
+ * Репозиторий для работы с сообщениями.
+ * Обеспечивает доступ к данным в БД.
+ */
 @Repository
 public interface MessageRepository extends JpaRepository<Message, Integer> {
 

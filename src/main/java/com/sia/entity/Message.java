@@ -8,6 +8,10 @@ import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
 
+/**
+ * Сущность сообщения.
+ * Представляет собой таблицу messages в БД.
+ */
 @Data
 @Builder
 @NoArgsConstructor
