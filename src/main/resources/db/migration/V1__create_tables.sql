@@ -1,3 +1,5 @@
+CREATE DATABASE kufar_chat_db;
+
 CREATE TABLE messages (
    id SERIAL PRIMARY KEY,
    sender_id INTEGER NOT NULL,
